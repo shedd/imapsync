@@ -98,16 +98,29 @@ Now imapsync should work on your system.
 = Building imapsync binary on Darwin / Mac OS X =
 =================================================
 
-cpanm Module::ScanDeps
-cpanm Module::ScanDeps
-cpanm PAR::Packer
+First, install the Perl dependencies:
 
-pp -o imapsync.bin imapsync 
+  cpanm Module::ScanDeps
+  cpanm PAR::Packer
+  cpanm File::Copy::Recursive
+  cpanm IO::Tee
+  cpanm Mail::IMAPClient
+  cpanm Unicode::String
+  cpanm Readonly
 
-./imapsync.bin 
-./imapsync.bin  --testslive
-./imapsync.bin  --tests
-./imapsync.bin  --module
+The following produces the binary:
+
+  pp -o imapsync.bin imapsync 
+
+The following should now run normally and provide the list of supported commands:
+
+  ./imapsync.bin 
+
+The following add additional modes:
+
+  ./imapsync.bin  --testslive
+  ./imapsync.bin  --tests
+  ./imapsync.bin  --module
 
 
 ==========================================
